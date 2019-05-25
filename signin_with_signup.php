@@ -1,0 +1,116 @@
+<?php 
+	$user_type = $_GET['user_type'];
+	//echo $_GET['failure'];
+	$status = "none";
+	$status_1 = "none";
+	$status_2 = "inline";
+	$status_3 = "none";
+	if($_GET['state'] == 1){
+		$status = "inline";
+	}
+	if($_GET['state'] == 2){
+		$status_1 = "inline";
+		$status_2 = "none";
+	}
+	if($_GET['state'] == 3){
+		$status_3 = "inline";
+		$status_2 = "none";
+	}
+	//echo $status;
+?>
+<html>
+	<head>
+		<title>YOJANA</title>
+		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
+		<style type="text/css">
+			html { 
+					background: url(playing.jpg) no-repeat center center fixed;
+  					-webkit-background-size: cover;
+  					-moz-background-size: cover;
+  					-o-background-size: cover;
+  					background-size: cover;
+				}
+			html, body {
+    			height: 100%;
+			}
+			html {
+    			display: table;
+    			margin: auto;
+			}
+			body {
+				text-align: center;
+    			display: table-cell;
+    			vertical-align: middle;
+			}
+
+			a:link, a:visited {
+				color: white;
+				text-decoration: none;
+			}
+			.right {
+				position: relative;
+				right: 0px;
+				left : 300px;
+				padding: 0px;
+			}
+	
+			input[type=text], select {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+			input[type=number], select {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+
+			.button {
+				background-color: #14d18c; /* Green */
+				border: none;
+				color: black;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+			input[type=password], select {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+
+		</style>
+	</head>
+
+	<body class = "right"  style = "font-family:'Georgia', serif; font-size: 100px; word-spacing: 0px; text-align:top; color:  #303030;"> YOJANA
+	<center>
+		<h3 style = "font-family:'Georgia', serif; font-size: 35px; word-spacing: 0px; text-align:center; color: #303030;display: <?php echo $status_2 ?>;">Already Registered?</h3>
+		<p style = "font-family:'Georgia', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #303030;display: <?php echo $status_1 ?>;
+		"> Succesfully Registered! </p>
+		<p style = "font-family:'Georgia', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #303030;display: <?php echo $status_3 ?>;
+		"> Please Register! </p>		
+		<form action = "SigninBackend.php?user_type=<?php echo $user_type ?>" method = "POST">
+			<input type = "number" name = "aadhar" placeholder = "Aadhar"><br>
+			<input type = "password" name = "password" type = "password" placeholder = "Password">
+			<button class = "button" type = "submit" >Submit</button>
+			<button class = "button" type = "button" onclick="document.location.href='UserType.php'" >Back</a></button>
+		</form>
+		<a href = "SignUp.php?state=0&user_type=<?php echo $user_type ?>" style = "font-family: 'Georgia'; text-align:left ;font-size: 35px; color: #303030"><b>Want to Register?</b></span><br>
+		<p style = "font-family:'Georgia', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #303030;display: <?php echo $status ?>;"> Aadhaar already exist </p>
+	</center>
+</html>
